@@ -2,58 +2,75 @@
 string greeting = @"Welcome to Thrown for a Loop
 Your one-stop shop for used sporting equipment";
 Console.WriteLine(greeting);
+
 List<Product> products = new List<Product>()
 {
     new Product()
     {
         Name ="Football",
-        Price = 15,
+        Price = 15.00M,
         Sold = false,
         StockDate = new DateTime(2022, 10, 20),
-        ManufactureYear = 2010
+        ManufactureYear = 2010,
+        Condition = 4.2
     },
     new Product()
     {
         Name = "Hockey Stick",
-        Price = 12,
+        Price = 12.00M,
         Sold = false,
         StockDate = new DateTime(2022, 8, 13),
-        ManufactureYear = 2012
+        ManufactureYear = 2012,
+        Condition = 3.9
     },
     new Product()
     {
-        Name = "Soccor Ball",
-        Price = 15,
+        Name = "Soccer Ball",
+        Price = 15.00M,
         Sold = false,
         StockDate = new DateTime(2023, 11, 3),
-        ManufactureYear = 2013
+        ManufactureYear = 2013,
+        Condition = 4.3
     },
     new Product()
     {
         Name = "Frisbee",
-        Price = 5,
+        Price = 5.00M,
         Sold = false,
         StockDate = new DateTime(2022, 12, 1),
-        ManufactureYear = 2011
+        ManufactureYear = 2011,
+        Condition = 4.9
     },
     new Product()
     {
         Name = "Golf Club",
-        Price = 18,
+        Price = 18.00M,
         Sold = false,
         StockDate = new DateTime(2023, 1, 23),
-        ManufactureYear = 2012
+        ManufactureYear = 2012,
+        Condition = 2.5
     },
     new Product()
     {
         Name = "Volleyball",
-        Price = 13,
+        Price = 13.00M,
         Sold = true,
         StockDate = new DateTime(2022, 9, 11),
-        ManufactureYear = 2011
+        ManufactureYear = 2011,
+        Condition = 3.6
     }
     //curly braces serve as an 'object initializer'
 };
+
+decimal totalValue = 0.0M;
+foreach (Product product in products)
+{
+    if (!product.Sold)
+    {
+        totalValue += product.Price;
+    }
+}
+Console.WriteLine($"Total inventory value: ${totalValue}");
 
 Console.WriteLine(@"Products:");
 for (int i = 0; i < products.Count; i++)
